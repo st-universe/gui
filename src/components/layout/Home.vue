@@ -3,7 +3,7 @@
 		<div>
 			<div class="home--top">
 				<div class="home--header">
-					<img src="/images/header.png" />
+					<img src="images/header.png" />
 				</div>
 				<div class="home--menu">
 					<a href="#/">Login</a>
