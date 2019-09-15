@@ -4,9 +4,9 @@
 			<div class="help--title" v-html="$t('help.title')"></div>
 			<div class="help--content" v-html="$t('help.content')"></div>
 			<div class="help--links">
-				<a href="https://discord.gg/PnnGdXD" target="_blank" class="help--link">Discord</a>
+				<a href="https://discord.gg/PnnGdXD" target="_blank" rel="noreferrer" class="help--link">Discord</a>
 				<br />
-				<a href="https://stu.wolvnet.de/docu" target="blank" class="help--link">{{ $t("help.documentation") }}</a>
+				<a href="https://stu.wolvnet.de/docu" target="blank" rel="noreferrer" class="help--link">{{ $t("help.documentation") }}</a>
 			</div>
 		</div>
 	</HomeLayout>

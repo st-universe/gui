@@ -3,14 +3,14 @@
 		<div>
 			<div class="home--top">
 				<div class="home--header">
-					<img src="images/header.png" />
+					<img src="images/header.png" alt="header" />
 				</div>
 				<div class="home--menu">
 					<a href="#/">Login</a>
 					<a href="#/registration">Registrieren</a>
 					<a href="#/news">News</a>
 					<a href="#/help">Hilfe</a>
-					<a href="https://github.com/usox/stu3/" target="_blank">Github</a>
+					<a href="https://github.com/usox/stu3/" target="_blank" rel="noreferrer">Github</a>
 					<a href="#/legalnotice">Impressum</a>
 				</div>
 			</div>
