@@ -2,7 +2,7 @@
 	<HomeLayout>
 		<div class="registration">
 			<div class="registration--header">Registrieren</div>
-			<input type="text" placeholder="E-Mail" />
+			<input type="text" placeholder="E-Mail" autofocus />
 			<input type="text" placeholder="Siedler" />
 			<input type="button" value="Registrieren" />
 		</div>
@@ -31,6 +31,7 @@
 		margin: 0px auto;
 		padding: 40px;
 		background-color: rgba(0,0,0,0.3);
+		border-top: 2px solid #0092d1;
 	}
 
 	.registration--header {
@@ -54,7 +55,7 @@
 		width: 100%;
 		margin-bottom: 10px;
 		height: 36px;
-		background-color: #4A8ABB;
+		background-color: #0092d1;
 		border: 0px none;
 		color: #fff;
 		font-weight: bold;

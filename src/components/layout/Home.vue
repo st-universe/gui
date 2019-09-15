@@ -1,20 +1,22 @@
 <template>
 	<div class="home">
 		<div>
-			<div class="home--menu">
-				<a href="#/">Login</a>
-				<a href="#/registration">Registrieren</a>
-				<a href="#/news">News</a>
-				<a href="#/help">Hilfe</a>
-				<a href="#/github">Github</a>
-				<a href="#/impressum">Impressum</a>
+			<div class="home--top">
+				<div class="home--header">
+					<img src="/images/header.png" />
+				</div>
+				<div class="home--menu">
+					<a href="#/">Login</a>
+					<a href="#/registration">Registrieren</a>
+					<a href="#/news">News</a>
+					<a href="#/help">Hilfe</a>
+					<a href="#/github">Github</a>
+					<a href="#/impressum">Impressum</a>
+				</div>
 			</div>
 		</div>
 		<div></div>
 		<div>
-			<div class="home--header">
-				<img src="images/header.png" />
-			</div>
 			<slot></slot>
 		</div>
 		<div></div>
@@ -48,16 +50,27 @@
 		height: 100%;
 	}
 
+	.home--top {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		max-width: 800px;
+		margin: 0px auto;
+	}
+
 	.home--header {
-		text-align:center;
-		margin-bottom: 40px;
+		height: 80px;
+		line-height: 80px;
+		text-align: center;
+	}
+
+	.home--header img {
+		vertical-align: middle;
 	}
 
 	.home--menu {
 		display: flex;
-		justify-content: space-between;
-		max-width: 600px;
-		margin: 0px auto;
+		justify-content: center;
 	}
 
 	.home--menu a {
@@ -66,10 +79,11 @@
 		text-transform: uppercase;
 		text-decoration: none;
 		color: #ccc;
+		padding: 0 10px;
 	}
 
 	.home--menu a:hover {
-		color: #fff;
+		color: #0092d1;
 	}
 
 	.home--copyright {
@@ -79,5 +93,11 @@
 	.home--copyright div {
 		text-align: center;
 		color: #666;
+	}
+
+	@media only screen and (max-width: 800px) {
+		.home--top {
+			display: block;
+		}
 	}
 </style>

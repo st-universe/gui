@@ -26,6 +26,7 @@
 		box-sizing: border-box;
 		font-family: 'Open Sans', sans-serif;
 		font-size: 14px;
+		outline: none;
 	}
 	html, body, #app { height: 100%; width: 100%; }
 	body {

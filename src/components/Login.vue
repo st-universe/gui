@@ -2,7 +2,7 @@
 	<HomeLayout>
 		<div class="login">
 			<div class="login--header">Login</div>
-			<input type="text" placeholder="Siedler" />
+			<input type="text" placeholder="Siedler" autofocus />
 			<input type="password" placeholder="Passwort" />
 			<input type="button" value="Login" />
 			<a href="/passwordlost" class="link">> Passwort vergessen?</a>
@@ -33,6 +33,7 @@
 		margin: 0px auto;
 		padding: 40px;
 		background-color: rgba(0,0,0,0.3);
+		border-top: 2px solid #0092d1;
 	}
 
 	.login--header {
@@ -45,7 +46,7 @@
 	.login input[type="password"] {
 		width: 100%;
 		margin-bottom: 10px;
-		height: 36px;
+		height: 42px;
 		background-color: #272E30;
 		border: 0px none;
 		padding: 0 10px;
@@ -55,8 +56,8 @@
 	.login input[type="button"] {
 		width: 100%;
 		margin-bottom: 10px;
-		height: 36px;
-		background-color: #4A8ABB;
+		height: 42px;
+		background-color: #0092d1;
 		border: 0px none;
 		color: #fff;
 		font-weight: bold;
