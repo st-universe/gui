@@ -10,8 +10,8 @@
 					<a href="#/registration">Registrieren</a>
 					<a href="#/news">News</a>
 					<a href="#/help">Hilfe</a>
-					<a href="#/github">Github</a>
-					<a href="#/impressum">Impressum</a>
+					<a href="https://github.com/usox/stu3/" target="_blank">Github</a>
+					<a href="#/legalnotice">Impressum</a>
 				</div>
 			</div>
 		</div>

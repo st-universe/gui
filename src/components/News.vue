@@ -2,10 +2,8 @@
 	<HomeLayout>
 		<div class="news-container">
 			<div class="news" v-for="news in $store.getters.getNews">
-				<div class="news--header">
-					<div class="news--headline">{{ news.headline }}</div>
-					<div class="news--date">{{ formatUnix(news.date, $t("format.datetime")) }}</div>
-				</div>
+				<div class="news--date">{{ formatUnix(news.date, $t("format.datetime")) }}</div>
+				<div class="news--headline">{{ news.headline }}</div>
 				<div class="news--content">{{ news.text }}</div>
 				<div class="news--links" v-for="link in news.links">
 					<div>
@@ -28,6 +26,9 @@
 		computed: {
 		},
 		methods: {
+		},
+		created() {
+			this.$store.dispatch('loadNews');
 		}
 	};
 </script>
@@ -41,18 +42,22 @@
 
 	.news {
 		background-color: rgba(0,0,0,0.3);
-		padding: 10px;
-		margin-bottom: 10px;
+		padding: 40px;
+		margin-bottom: 20px;
+		border-top: 2px solid #0092d1;
 	}
 
-	.news--header {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 20px;
+	.news--date {
+		opacity: 0.4;
+		margin-bottom: 10px;
+		text-align: center;
 	}
 
 	.news--headline {
 		font-weight: bold;
+		font-size: 18px;
+		text-align: center;
+		margin-bottom: 20px;
 	}
 
 	.news--links {

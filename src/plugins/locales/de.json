@@ -1,5 +1,14 @@
 {
 	"format": {
 		"datetime": "DD.MM.YYYY HH:mm"
+	},
+	"help": {
+		"title": "Du brauchst Hilfe? Keine Panik.",
+		"content": "Es gibt verschiedene Wege, Hilfe zu einem spezifischen Problem zu bekommen. Erster Anlaufpunkt für Fragen und Informationen ist in jedem Fall die Dokumentation. Dort gibt es neben Einsteigerinfos und Datenbanken auch nützliche Tipps rund um den Alltag als Siedler.<br /><br />Für alles andere kannst Du gerne unseren Discord-Server besuchen.",
+		"documentation": "Dokumentation"
+	},
+	"legalnotice": {
+		"title": "Impressum",
+		"content": "<b>Seitenbetreiber</b><br />Daniel Jakob<br />Ringweg 8<br />83670 Bad Heilbrunn<br />Deutschland<br /><br />stu (at) usox (.) org<br /><br /><b>Hinweis</b><br />Dieses Spiel ist nicht profitorientiert.<br />Bitte beachtet dazu auch den Copyright Hinweis."
 	}
 }

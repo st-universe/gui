@@ -12,10 +12,7 @@
         computed: {
         },
         methods: {
-        },
-		created() {
-			this.$store.dispatch('loadNews');
-		}
+        }
     };
 </script>
 
