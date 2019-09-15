@@ -10,5 +10,12 @@
 	"legalnotice": {
 		"title": "Impressum",
 		"content": "<b>Seitenbetreiber</b><br />Daniel Jakob<br />Ringweg 8<br />83670 Bad Heilbrunn<br />Deutschland<br /><br />stu (at) usox (.) org<br /><br /><b>Hinweis</b><br />Dieses Spiel ist nicht profitorientiert.<br />Bitte beachtet dazu auch den Copyright Hinweis."
+	},
+	"registration": {
+		"title": "Registrieren",
+		"name": "Login-Name",
+		"email": "E-Mail Adresse",
+		"selectFraction": "Fraktion wählen",
+		"submit": "Registrieren"
 	}
 }

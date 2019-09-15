@@ -95,6 +95,66 @@
 		color: #666;
 	}
 
+	.box {
+		width: 100%;
+		max-width: 800px;
+		margin: 0px auto;
+		padding: 40px;
+		background-color: rgba(0,0,0,0.3);
+		border-top: 2px solid #0092d1;
+	}
+
+	.box-small {
+		width: 100%;
+		max-width: 500px;
+		margin: 0px auto;
+		padding: 40px;
+		background-color: rgba(0,0,0,0.3);
+		border-top: 2px solid #0092d1;
+	}
+
+	.box--header {
+		text-align: center;
+		margin-bottom: 40px;
+		font-size: 24px;
+	}
+
+	input[type="text"].box--form,
+	input[type="password"].box--form,
+	select.box--form {
+		width: 100%;
+		margin-bottom: 10px;
+		height: 42px;
+		background-color: #272E30;
+		border: 0px none;
+		padding: 0 10px;
+		color: #aaa;
+	}
+
+	input[type="button"].box--form {
+		width: 100%;
+		margin-bottom: 10px;
+		height: 42px;
+		background-color: #0092d1;
+		border: 0px none;
+		color: #fff;
+		font-weight: bold;
+	}
+
+	a.box--link {
+		margin-bottom: 10px;
+		color: #0070ff;
+		text-decoration: none;
+	}
+
+	a.box--link:last-child {
+		margin-bottom: 0px;
+	}
+
+	a.box--link:hover {
+		color: #5ea4fd;
+	}
+
 	@media only screen and (max-width: 800px) {
 		.home--top {
 			display: block;
