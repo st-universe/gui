@@ -1,3 +1,5 @@
 {
-	"test": "HALLO WELT"
+	"format": {
+		"datetime": "DD.MM.YYYY HH:mm"
+	}
 }

@@ -1,12 +1,10 @@
 <template>
 	<HomeLayout>
-		<div class="login">
-			<div class="login--header">Login</div>
+		<div class="registration">
+			<div class="registration--header">Registrieren</div>
+			<input type="text" placeholder="E-Mail" />
 			<input type="text" placeholder="Siedler" />
-			<input type="password" placeholder="Passwort" />
-			<input type="button" value="Login" />
-			<a href="/passwordlost" class="link">> Passwort vergessen?</a>
-			<a href="/registration" class="link">> Registrieren</a>
+			<input type="button" value="Registrieren" />
 		</div>
 	</HomeLayout>
 </template>
@@ -15,7 +13,7 @@
 	import HomeLayout from "./layout/Home.vue";
 
 	export default {
-		name: "Login",
+		name: "News",
 		components: {
 			HomeLayout
 		},
@@ -27,7 +25,7 @@
 </script>
 
 <style scoped>
-	.login {
+	.registration {
 		width: 100%;
 		max-width: 500px;
 		margin: 0px auto;
@@ -35,14 +33,14 @@
 		background-color: rgba(0,0,0,0.3);
 	}
 
-	.login--header {
+	.registration--header {
 		text-align: center;
 		margin-bottom: 40px;
 		font-size: 24px;
 	}
 
-	.login input[type="text"],
-	.login input[type="password"] {
+	.registration input[type="text"],
+	.registration input[type="password"] {
 		width: 100%;
 		margin-bottom: 10px;
 		height: 36px;
@@ -52,7 +50,7 @@
 		color: #aaa;
 	}
 
-	.login input[type="button"] {
+	.registration input[type="button"] {
 		width: 100%;
 		margin-bottom: 10px;
 		height: 36px;
@@ -62,14 +60,14 @@
 		font-weight: bold;
 	}
 
-	.login .link {
+	.registration .link {
 		display: block;
 		margin-bottom: 10px;
 		color: #ccc;
 		text-decoration: none;
 	}
 
-	.login .link:last-child {
+	.registration .link:last-child {
 		margin-bottom: 0px;
 	}
 </style>
