@@ -15,7 +15,7 @@
 		"title": "Registrieren",
 		"name": "Login-Name",
 		"email": "E-Mail Adresse",
-		"selectFraction": "Fraktion wählen",
+		"selectFaction": "Wähle eine Fraktion",
 		"submit": "Registrieren"
 	}
 }

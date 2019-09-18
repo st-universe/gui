@@ -4,26 +4,22 @@
 			<div class="box--header">{{ $t("registration.title") }}</div>
 			<input type="text" class="box--form" v-bind:placeholder="$t('registration.name')" />
 			<input type="text" class="box--form" v-bind:placeholder="$t('registration.email')" autofocus />
-
-			<v-select :options="$store.getters.getFactions" class="style-chooser" label="name" placeholder="Wähle eine Fraktion" :searchable="false" :clearable="false">
+			<v-select :options="$store.getters.getFactions" class="style-chooser" label="name" v-bind:placeholder="$t('registration.selectFaction')" :searchable="false" :clearable="false">
 				<template slot="option" slot-scope="option">
 					<div class="faction-option">
 						<div class="faction-option--image">
 							<img v-bind:src="'/images/factions/'+option.id+'.gif'" />
 						</div>
 						<div class="faction-option--text">
-							<div class="faction-option--text-name">{{ option.name }}</div>
+							<div class="faction-option--text-name">{{ option.name }} ({{option.player_amount}}/{{option.player_limit}})</div>
 							<div class="faction-option--text-desc">{{ option.description }}</div>
 						</div>
 					</div>
 				</template>
-
 				<template slot="selected-option" slot-scope="option">
 					<img v-bind:src="'/images/factions/'+option.id+'.gif'" /> {{ option.name }}
 				</template>
-
 			</v-select>
-
 			<input type="button" class="box--form" v-bind:value="$t('registration.submit')" />
 		</div>
 	</HomeLayout>
@@ -59,9 +55,11 @@
 		display: table-cell;
 		vertical-align: middle;
 		text-align: center;
-		width: 30px;
-		padding-right: 15px;
-		padding-top: 5px;
+	}
+
+	.faction-option--image img {
+		vertical-align: middle;
+		padding-right: 10px !important;
 	}
 
 	.faction-option--text {
@@ -81,27 +79,37 @@
 		color: #aaa;
 		border: none;
 		opacity: 1 !important;
+		margin: 0 !important;
+		padding: 0 !important;
 	}
 
 	.style-chooser .vs__search {
-		opacity: 0.8;
+		padding: 0 10px !important;
+	}
+
+	.style-chooser .vs__actions {
+		padding: 0 10px !important;
 	}
 
 	.style-chooser .vs__selected {
 		position: relative !important;
 		margin: 0;
-		padding-left: 10px;
+		padding-left: 10px !important;
 		height: 42px;
 	}
 
 	.style-chooser .vs__selected img {
-		margin-right: 10px;
+		margin-right: 10px !important;
 	}
 
-	.vs__dropdown-option--highlight,
-	.vs__dropdown-option--highlight * {
+	.style-chooser .vs__dropdown-option--highlight,
+	.style-chooser .vs__dropdown-option--highlight * {
 		background-color: #0092d1;
 		color: #fff;
+	}
+
+	.style-chooser .vs__dropdown-option {
+		padding: 5px 10px !important;
 	}
 
 	.style-chooser .vs__search::placeholder,
