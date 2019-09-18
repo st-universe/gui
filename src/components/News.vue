@@ -5,7 +5,7 @@
 			<div class="news--headline">{{ news.headline }}</div>
 			<div class="news--content">{{ news.text }}</div>
 			<div v-for="link in news.links">
-				<a v-bind:href="link" target="_blank" class="box--link">{{ link }}</a>
+				<a v-bind:href="link" target="_blank" rel="noreferrer" class="box--link">{{ link }}</a>
 			</div>
 		</div>
 	</HomeLayout>
