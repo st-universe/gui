@@ -95,6 +95,17 @@
 		color: #666;
 	}
 
+	.home--error {
+		width: 100%;
+		max-width: 800px;
+		color: #f00;
+		text-align: center;
+		border: 1px dashed #f00;
+		padding: 20px;
+		margin: 0px auto;
+		margin-bottom: 40px;
+	}
+
 	.box {
 		width: 100%;
 		max-width: 800px;
@@ -139,6 +150,7 @@
 		border: 0px none;
 		color: #fff;
 		font-weight: bold;
+		cursor: pointer;
 	}
 
 	a.box--link {

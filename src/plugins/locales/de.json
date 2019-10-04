@@ -17,5 +17,10 @@
 		"email": "E-Mail Adresse",
 		"selectFaction": "Wähle eine Fraktion",
 		"submit": "Registrieren"
+	},
+	"registration_success": {
+		"title": "Registrierung erfolgreich",
+		"text": "Die Registrierung war erfolgreich. In Kürze erhälst du eine E-Mail mit den Login-Daten.",
+		"back": "Zurück zum Login"
 	}
 }
