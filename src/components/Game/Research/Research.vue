@@ -3,7 +3,7 @@
 		<div class="box">
 			<div v-for="tech in $store.getters.getResearchList.available">
 				<div class="research--commodity">
-					<img :src="'/assets/goods/' + tech.commodity.commodityId + '.gif'" />
+					<img :src="getAssetPath() + '/goods/' + tech.commodity.commodityId + '.gif'" />
 					{{ tech.points }}
 				</div>
 				<div class="research--name">{{ tech.name }}</div>
@@ -23,6 +23,8 @@
 		},
 		created() {
 			this.$store.dispatch('loadResearchList');
+		},
+		methods: {
 		}
 	};
 </script>

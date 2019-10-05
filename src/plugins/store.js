@@ -13,18 +13,18 @@ export default new Vuex.Store({
 	},
 	actions: {
 		loadNews(context) {
-			axios.get('https://stu.wolvnet.de/api/v1/common/news').then((response) => {
+			axios.get(process.env.API_URL + '/v1/common/news').then((response) => {
 				context.commit('updateNews', response.data.data);
 			});
 		},
 		loadFactions(context) {
-			axios.get('https://stu.wolvnet.de/api/v1/common/faction').then((response) => {
+			axios.get(process.env.API_URL + '/v1/common/faction').then((response) => {
 				context.commit('updateFactions', response.data.data);
 			});
 		},
 		loadResearchList(context) {
 			return axios.get(
-				'https://stu.wolvnet.de/api/v1/player/research',
+				process.env.API_URL + '/v1/player/research',
 				{
 					headers: {
 						Authorization: `Bearer ${this.state.userToken}`
@@ -49,7 +49,7 @@ export default new Vuex.Store({
 			});
 		},
 		loadUser(context, login) {
-			return axios.post('https://stu.wolvnet.de/api/v1/common/login', login)
+			return axios.post(process.env.API_URL + '/v1/common/login', login)
 				.catch((error) => {
 					throw error.response.data.error.error;
 				})
@@ -68,7 +68,7 @@ export default new Vuex.Store({
 				});
 		},
 		createUser(context, registration) {
-			return axios.post('https://stu.wolvnet.de/api/v1/common/player/new', registration)
+			return axios.post(process.env.API_URL + '/v1/common/player/new', registration)
 				.catch((error) => {
 					throw error.response.data.error.error;
 				})
