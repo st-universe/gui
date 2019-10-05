@@ -8,7 +8,8 @@ export default new Vuex.Store({
 	state: {
 		news: [],
 		factions: [],
-		userToken: null
+		userToken: null,
+		researchList: [],
 	},
 	actions: {
 		loadNews(context) {
@@ -19,6 +20,32 @@ export default new Vuex.Store({
 		loadFactions(context) {
 			axios.get('https://stu.wolvnet.de/api/v1/common/faction').then((response) => {
 				context.commit('updateFactions', response.data.data);
+			});
+		},
+		loadResearchList(context) {
+			return axios.get(
+				'https://stu.wolvnet.de/api/v1/player/research',
+				{
+					headers: {
+						Authorization: `Bearer ${this.state.userToken}`
+					},
+				},
+			)
+			.catch((error) => {
+					throw error.response.data.error.error;
+			})
+			.then((response) => {
+				if (response.data.error) {
+					throw response.data.error.error;
+				}
+
+				return response.data;
+			})
+			.then((data) => {
+				context.commit('updateResearchList', data.data);
+			})
+			.catch((error) => {
+				throw error;
 			});
 		},
 		loadUser(context, login) {
@@ -39,7 +66,6 @@ export default new Vuex.Store({
 				.catch((error) => {
 					throw error;
 				});
-
 		},
 		createUser(context, registration) {
 			return axios.post('https://stu.wolvnet.de/api/v1/common/player/new', registration)
@@ -65,6 +91,9 @@ export default new Vuex.Store({
 		},
 		updateUserToken(state, token) {
 			state.userToken = token;
+		},
+		updateResearchList(state, researchList) {
+			state.researchList = researchList;
 		}
 	},
 	getters: {
@@ -73,6 +102,9 @@ export default new Vuex.Store({
 		},
 		getFactions(state) {
 			return state.factions;
+		},
+		getResearchList(state) {
+			return state.researchList;
 		}
 	},
 	modules: {},

@@ -38,6 +38,9 @@
 				this.$store.dispatch('loadUser', { username:this.username, password:this.password })
 					.catch((error) => {
 						this.errorMessage = error;
+					})
+					.then((response) => {
+						this.$router.push('/maindesk');
 					});
 			}
 		}
