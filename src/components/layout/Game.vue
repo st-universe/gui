@@ -1,19 +1,27 @@
 <template>
 	<div class="game">
-   			<div class="item item-1">Header</div>
-   			<div class="item item-2">
-				<ul>
-					<li>
-						<a href="#/maindesk">Maindesk</a>
-					</li>
-					<li>
-						<a href="#/research">Forschung</a>
-					</li>
-				</ul>
+		<div class="game--header">
+			<div>
 			</div>
-			<div class="item item-3">
-				<slot></slot>
+			<div>
 			</div>
+			<div>
+				<a v-on:click="logout()" style="cursor: pointer">Logout</a>
+			</div>
+		</div>
+		<div class="game-navigation">
+			<ul>
+				<li>
+					<a href="#/maindesk">Maindesk</a>
+				</li>
+				<li>
+					<a href="#/research">Forschung</a>
+				</li>
+			</ul>
+		</div>
+		<div class="game--content">
+			<slot></slot>
+		</div>
 	</div>
 </template>
 
@@ -25,6 +33,20 @@
 		computed: {
 		},
 		methods: {
+			logout() {
+				this.$store.dispatch('logout')
+					.catch((error) => {
+						this.$router.push('/');
+					})
+					.then((response) => {
+						this.$router.push('/');
+					});
+			}
+		},
+		mounted() {
+			if (localStorage.userToken) {
+				this.userToken = localStorage.userToken;
+			}
 		}
 	};
 </script>
@@ -36,11 +58,22 @@
 		grid-template-rows: 120px auto;
 		height: 100%;
 	}
-	.item-1 {
-		grid-column: 1 / 3;
+
+	.game--content {
+		padding-top: 15px;
+		padding-left: 15px;
 	}
-	.item-2 {
+
+	.game--navigation {
 		grid-row: 2 / 2;
+	}
+
+	.game--header {
+		grid-column: 1 / 3;
+		display: grid;
+		grid-template-columns: 150px auto 100px;
+		height: 100%;
+		border-bottom: 1px solid #2f2f30;
 	}
 
 	@media only screen and (max-width: 800px) {

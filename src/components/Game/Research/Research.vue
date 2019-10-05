@@ -23,7 +23,7 @@
 					<div>
 						<div class="research--costs"><h3>Kosten</h3></div>
 						<div class="research--costs-value">
-							<img :src="getAssetPath() + '/goods/' + tech.commodity.commodityId + '.gif'" :title='tech.commodity.name' />
+							<img :src="getAssetPath() + '/goods/' + tech.commodity.commodityId + '.gif'" />
 							{{ tech.points }}
 						</div>
 						<div class="research--action">

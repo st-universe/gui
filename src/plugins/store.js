@@ -8,7 +8,6 @@ export default new Vuex.Store({
 	state: {
 		news: [],
 		factions: [],
-		userToken: null,
 		researchList: [],
 	},
 	actions: {
@@ -27,7 +26,7 @@ export default new Vuex.Store({
 				process.env.API_URL + '/v1/player/research',
 				{
 					headers: {
-						Authorization: `Bearer ${this.state.userToken}`
+						Authorization: `Bearer ${this.getters.getUserToken}`
 					},
 				},
 			)
@@ -48,6 +47,26 @@ export default new Vuex.Store({
 				throw error;
 			});
 		},
+		logout(context) {
+			return axios.post(
+				process.env.API_URL + '/v1/player/logout',
+				{},
+				{
+					headers: {
+						Authorization: `Bearer ${this.getters.getUserToken}`
+					},
+				}
+			)
+			.catch((error) => {
+				throw error.response.data.error.error;
+			})
+			.then((response) => {
+				localStorage.userToken = null;
+			})
+			.catch((error) => {
+				throw error;
+			});
+		},
 		loadUser(context, login) {
 			return axios.post(process.env.API_URL + '/v1/common/login', login)
 				.catch((error) => {
@@ -61,7 +80,7 @@ export default new Vuex.Store({
 					return response.data;
 				})
 				.then((data) => {
-					context.commit('updateUserToken', data.data.token);
+					localStorage.userToken = data.data.token;
 				})
 				.catch((error) => {
 					throw error;
@@ -89,9 +108,6 @@ export default new Vuex.Store({
 		updateFactions(state, factions) {
 			state.factions = factions;
 		},
-		updateUserToken(state, token) {
-			state.userToken = token;
-		},
 		updateResearchList(state, researchList) {
 			state.researchList = researchList;
 		}
@@ -105,6 +121,12 @@ export default new Vuex.Store({
 		},
 		getResearchList(state) {
 			return state.researchList;
+		},
+		getUserToken(state) {
+			if (localStorage.userToken) {
+				return localStorage.userToken;
+			}
+			return null;
 		}
 	},
 	modules: {},
