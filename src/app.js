@@ -10,6 +10,7 @@ Vue.mixin(mixins);
 //import AppGlobal from './mixins/AppGlobal.js'
 //Vue.mixin(AppGlobal);
 
+
 export default new Vue({
     el: '#content',
 	router,
