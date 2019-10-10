@@ -4,6 +4,18 @@
 			<div>
 			</div>
 			<div>
+				<div class="box game--navlet-pms">
+					<div v-for="pms in $store.getters.getNewPms">
+						<div v-if="pms.new_pm_amount == 0">
+							<img width="30" height="30" :src="getAssetPath() + '/buttons/pmnavlet_' + pms.folder_special_id + '_0.gif'" /><br />
+							{{ pms.new_pm_amount }}
+						</div>
+						<div v-else class="game--new-pm">
+							<img width="30" height="30" :src="getAssetPath() + '/buttons/pmnavlet_' + pms.folder_special_id + '_1.gif'" /><br />
+							{{ pms.new_pm_amount }}
+						</div>
+					</div>
+				</div>
 			</div>
 			<div>
 				<a v-on:click="logout()" style="cursor: pointer">Logout</a>
@@ -26,8 +38,21 @@
 </template>
 
 <script>
+	import axios from 'axios';
+
 	export default {
 		name: "Game",
+		created() {
+			if (!this.pmtimer) {
+				this.fetchNewPms();
+			}
+			this.pmtimer = setInterval(
+				() => {
+					this.fetchNewPms();
+				},
+				60000
+			);
+		},
 		components: {
 		},
 		computed: {
@@ -41,6 +66,38 @@
 					.then((response) => {
 						this.$router.push('/');
 					});
+			},
+			fetchNewPms () {
+				return axios.get(
+					process.env.API_URL + '/v1/player/newpms',
+					{
+						headers: {
+							Authorization: `Bearer ${this.$store.getters.getUserToken}`
+						},
+					},
+				)
+				.catch((error) => {
+						throw error.response.data.error.error;
+				})
+				.then((response) => {
+					if (response.data.error) {
+						throw response.data.error.error;
+					}
+
+					return response.data;
+				})
+				.then((data) => {
+					this.$store.commit('updateNewPms', data.data);
+				})
+				.catch((error) => {
+					throw error;
+				});
+			},
+			cancelPmUpdate () {
+				clearInterval(this.pmtimer);
+			},
+			beforeDestroty () {
+				this.cancelPmUpdate();
 			}
 		},
 		mounted() {
@@ -59,6 +116,14 @@
 		height: 100%;
 	}
 
+	.game--navlet-pms {
+		display: grid;
+		grid-template-columns: 50px 50px 50px 50px;
+		height: 100%;
+		text-align: center;
+		padding-top: 20px;
+	}
+
 	.game--content {
 		padding-top: 15px;
 		padding-left: 15px;
@@ -68,10 +133,14 @@
 		grid-row: 2 / 2;
 	}
 
+	.game--new-pm {
+		color: #ff0000;
+	}
+
 	.game--header {
 		grid-column: 1 / 3;
 		display: grid;
-		grid-template-columns: 150px auto 100px;
+		grid-template-columns: 300px auto 100px;
 		height: 100%;
 		border-bottom: 1px solid #2f2f30;
 	}

@@ -9,6 +9,7 @@ export default new Vuex.Store({
 		news: [],
 		factions: [],
 		researchList: [],
+		newPms: []
 	},
 	actions: {
 		loadNews(context) {
@@ -110,6 +111,9 @@ export default new Vuex.Store({
 		},
 		updateResearchList(state, researchList) {
 			state.researchList = researchList;
+		},
+		updateNewPms(state, data) {
+			state.newPms = data;
 		}
 	},
 	getters: {
@@ -127,6 +131,9 @@ export default new Vuex.Store({
 				return localStorage.userToken;
 			}
 			return null;
+		},
+		getNewPms(state) {
+			return state.newPms;
 		}
 	},
 	modules: {},
