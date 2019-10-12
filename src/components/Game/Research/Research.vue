@@ -10,7 +10,7 @@
 				</div>
 				<div class="research--expandable hidden" :ref='"researchDetail" + tech.researchId'>
 					<div>
-						<img src="http://localhost:1337/201201.png" />
+						<img :src="getAssetPath() + '/research/' + tech.researchId + '.png'" />
 					</div>
 					<div>
 						<div>
