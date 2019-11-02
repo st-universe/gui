@@ -18,4 +18,4 @@ NPM required (tested with 6.9.0)
 
 ### Build dist folder - production
 
-`npm run build-prod`
+`npm run build-production`

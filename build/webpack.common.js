@@ -2,7 +2,6 @@ const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = {
 	output: {
@@ -34,7 +33,6 @@ module.exports = {
 		}),
 		new CopyWebpackPlugin([ { from: 'public/images', to: 'images' } ]),
 		new CopyWebpackPlugin([ { from: 'public/fonts', to: 'fonts' } ]),
-		new VueLoaderPlugin(),
-		new Dotenv()
+		new VueLoaderPlugin()
 	]
 };
